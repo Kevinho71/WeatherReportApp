@@ -29,7 +29,23 @@ Este documento explica las decisiones de diseño y arquitectura tomadas durante 
 
 ---
 
-## 💾Uso de localStorage para Historial
+##  Manejo de API Key y Seguridad
+
+### Situación Identificada
+Al utilizar la API de geocodificación de OpenWeather, la **API Key** es visible en la pestaña "Network" de las herramientas de desarrollador del navegador durante la petición HTTP.
+
+### Explicación Técnica
+Esto es un comportamiento inherente a las aplicaciones **SPA (Single Page Applications)** que realizan peticiones directamente desde el navegador (Client-side). Para que OpenWeather valide la solicitud, el navegador debe enviar la credencial en la URL. Al no existir un servidor intermedio (Backend/Proxy) que inyecte la llave en privado, esta debe residir en el cliente.
+
+### Decisión
+Mantener la petición directa desde el cliente (**Client-side Request**) sin implementar un proxy o Serverless Function para ocultar la llave.
+
+### Justificación
+1. **Arquitectura Consciente (KISS)**: Implementar una *Netlify Function* o un backend intermedio únicamente para ocultar una llave de un servicio gratuito añadiría una capa de complejidad (infraestructura y mantenimiento) desproporcionada para el alcance de una prueba técnica/portfolio.
+2. **Riesgo Controlado**: La API Key utilizada pertenece al **Free Tier** (Capa Gratuita) de OpenWeather, la cual tiene límites estrictos de uso (Rate Limiting) y no posee instrumentos financieros vinculados que supongan un riesgo económico.
+3. **Transparencia**: Se reconoce que en un **entorno de producción real** con planes comerciales, la práctica estándar obligatoria sería implementar el patrón **Backend-for-Frontend (BFF)** o un Proxy Reverso para proteger las credenciales.
+
+## Uso de localStorage para Historial
 
 ### Decisión
 Implementar persistencia del historial de búsquedas con `localStorage` en lugar de estado efímero.
@@ -153,7 +169,7 @@ Crear hooks personalizados para encapsular lógica compleja.
 
 ---
 
-## 🎨Arquitectura de Estilos
+## Arquitectura de Estilos
 
 ### Decisión
 CSS modular con metodología BEM y variables CSS.
