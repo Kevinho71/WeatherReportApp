@@ -29,7 +29,7 @@ export const getCoordinatesByCityName = async (name: string): Promise<GeocodingM
 export const getCityNameByCoordinates = async (latitude: number, longitude: number): Promise<ReverseGeocodingMappedResponse> => {
     const apikey = import.meta.env.VITE_OPEN_WEATHER_GEOCODING_API_KEY;
     const rawDataResponse = await axios.get<ReverseGeocodingRawResponse[]>(
-        `http://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=1&appid=${apikey}`
+        `https://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=1&appid=${apikey}`
     );
 
     const rawData = rawDataResponse.data;
