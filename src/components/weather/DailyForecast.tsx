@@ -9,7 +9,7 @@ interface Props {
 
 export const DailyForecast = ({ daily }: Props): JSX.Element => {
     const formatDate = (dateString: Date): string => {
-        const date = new Date(dateString);
+        const date = new Date(`${dateString}T00:00:00`);
         const days = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
         const months = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
         
