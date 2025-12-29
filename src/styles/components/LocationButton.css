@@ -1,0 +1,47 @@
+/* LocationButton Component Styles */
+.location-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius-full);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-md);
+  margin: 0 auto var(--spacing-lg) auto;
+  max-width: 300px;
+}
+
+.location-button:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.location-button:active:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.location-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.location-button__icon {
+  font-size: 22px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.location-button__text {
+  letter-spacing: 0.5px;
+}
+
+.location-button:disabled .location-button__icon {
+  animation: spin 1s linear infinite;
+}
