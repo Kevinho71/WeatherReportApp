@@ -24,7 +24,7 @@ Aplicación web moderna de pronóstico del tiempo construida con React + TypeScr
 - **Efectos de brillo** y sombras dinámicas
 - **Transiciones fluidas** entre estados
 
-## 📋Requisitos
+## Requisitos
 
 - Node.js 18+ 
 - npm o yarn
@@ -60,7 +60,7 @@ npm run dev
 
 5. Abre tu navegador en `http://localhost:5173`
 
-## 📁 Estructura del Proyecto
+##  Estructura del Proyecto
 
 ```
 src/
@@ -92,7 +92,7 @@ src/
     └── iconMapper.ts        # Mapeo de iconos WMO a SVG
 ```
 
-## 🎨 Paleta de Colores
+##  Paleta de Colores
 
 ### Colores Principales
 - **Background**: Gradiente `#0f2027 → #203a43 → #2c5364`
@@ -169,10 +169,7 @@ npm run lint         # Ejecuta ESLint
 
 ##  Mejoras Futuras
 
-- [ ] Internacionalización (i18n)
-- [ ] Progressive Web App (PWA)
 - [ ] Gráficos de temperatura
-- [ ] Toggle entre °C y °F
 - [ ] Más datos meteorológicos (humedad, presión, UV, etc.)
 
 ##  Autor
